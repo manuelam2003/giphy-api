@@ -8,11 +8,15 @@ const changeImage = function (query) {
     "https://api.giphy.com/v1/gifs/translate?api_key=0vYQTBN9dFFjcydiLOjCeeZmN3PYs8HU&s=" + query,
     { mode: "cors" }
   )
-    .then(function (response) {
+    .then((response) => {
       return response.json();
     })
-    .then(function (response) {
+    .then((response) => {
       img.src = response.data.images.original.url;
+    })
+    .catch((err) => {
+      console.log("saliao");
+      img.src = "https://media2.giphy.com/media/RHKFQREjOuvzhmm32g/giphy.gif?cid=9b8bad92slq5i0z547az1f7bdkac7k6xodh21agcvbz1ju8l&ep=v1_gifs_translate&rid=giphy.gif&ct=s";
     });
 };
 
